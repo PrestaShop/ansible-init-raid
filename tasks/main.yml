@@ -4,8 +4,8 @@
 - fail: msg="Variable raid_file_system was not defined. Specify ext4 or xfs"
   when: raid_file_system is not defined
 
-- fail: msg="Variable raid_mount_point was not defined. Specify a directory"
-  when: raid_mount_point is not defined
+- fail: msg="Variable raid_mountpoint was not defined. Specify a directory"
+  when: raid_mountpoint is not defined
 
 - fail: msg="Variable raid_device was not defined. Specify /dev/md[number]"
   when: raid_device is not defined
