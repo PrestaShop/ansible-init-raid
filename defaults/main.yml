@@ -1,0 +1,14 @@
+---
+# defaults file for ansible-init-raid
+
+# default file system
+raid_file_system: "xfs"
+
+# default mountpoint
+raid_mountpoint: "/data"
+
+# default raid device name
+raid_device: "/dev/md127"
+
+system_devices: "/dev/sda|/dev/sdb"
+

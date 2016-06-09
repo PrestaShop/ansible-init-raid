@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Herve Leclerc
+  description: Set's up raid on vm
+  company: None
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  categories:
+  - cloud
+  - clustering
+  - system
+dependencies: []
+  
