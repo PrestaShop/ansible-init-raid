@@ -3,12 +3,15 @@
 
 - fail: msg="Variable raid_file_system was not defined. Specify ext4 or xfs"
   when: raid_file_system is not defined
+- debug: msg="raid file system is {{ raid_file_system }}"
 
 - fail: msg="Variable raid_mountpoint was not defined. Specify a directory"
   when: raid_mountpoint is not defined
+- debug: msg="Mount point is {{ raid_mountpoint }}"
 
 - fail: msg="Variable raid_device was not defined. Specify /dev/md[number]"
   when: raid_device is not defined
+- debug: msg="Raid device is {{ raid_device }}"
 
 - name: Install Ubuntu packages
   apt: name={{ item }} state=latest
@@ -49,6 +52,6 @@
   mount: >
     name={{ raid_mountpoint }}
     src={{ raid_device }}
-    fstype={{ file_system }}
+    fstype={{ raid_file_system }}
     state=mounted
     opts=defaults,noatime
