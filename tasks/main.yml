@@ -25,7 +25,7 @@
   failed_when: mdadm_check.rc == 0
 
 - name: "List data disks and exclude system reserved devices"
-  shell: ls  /dev/sd* | egrep -v "/dev/sda|/dev/sdb" |egrep -v "[0-9]$"
+  shell: ls  /dev/sd* | egrep -v "[0-9]$" | grep -E -v $(df | tail -n+2 | sed 's/[0-9]\+//' | awk '{print $1}' ORS='|' | rev | cut -c2- | rev)
   register: data_devices
 
 - name: "Abort if RAID is not needed"
